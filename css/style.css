@@ -1,0 +1,457 @@
+﻿/* --------- Reset Style --------- */
+* {
+	font-weight: normal;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+:link, :visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, pre, code {
+	font-size: 1em;
+}
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, hr, pre, form, body, html, p, button, blockquote, fieldset, input {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	cursor: pointer;
+}
+
+a img, :link img, :visited img {
+	border: none;
+}
+
+input:focus, button:focus {
+	outline: none;
+}
+
+address {
+	font-style: normal;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	background: transparent;
+}
+
+hr {
+	width: 938px;
+}
+
+textarea {
+	resize: none;
+}
+
+input {
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+
+/* --------- Fonts --------- */
+@font-face {
+	font-family: LatoBlack;
+	src: url('../fonts/Lato-Black.ttf');
+}
+
+@font-face {
+	font-family: LatoBlackItalic;
+	src: url('../fonts/Lato-BlackItalick.ttf');
+}
+
+@font-face {
+	font-family: LatoBold;
+	src: url('../fonts/Lato-Bold.ttf');
+}
+
+@font-face {
+	font-family: LatoBoldItalic;
+	src: url('../fonts/Lato-BoldItalic.ttf');
+}
+
+@font-face {
+	font-family: LatoHairline;
+	src: url('../fonts/Lato-Hairline.ttf');
+}
+
+@font-face {
+	font-family: LatoHairlineItalic;
+	src: url('../fonts/Lato-HairlineItalic.ttf');
+}
+
+@font-face {
+	font-family: LatoItalic;
+	src: url('../fonts/Lato-Italic.ttf');
+}
+
+@font-face {
+	font-family: LatoLight;
+	src: url('../fonts/Lato-Light.ttf');
+}
+
+@font-face {
+	font-family: LatoLightItalic;
+	src: url('../fonts/Lato-LightItalic.ttf');
+}
+
+@font-face {
+	font-family: Lato;
+	src: url('../fonts/Lato-Regular.ttf');
+}
+
+/* --------- Header --------- */
+.header {
+	width: 100%;
+	height: 50px;
+	background-color: #696969;
+}
+.header__menu {
+	float: right;
+	margin-top: 13px;
+}
+
+.menu__item {
+	float: left;
+	margin-right: 20px;
+}
+
+.menu__link {
+	color: #bebebe;
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 17px;
+	transition: color .1s ease-in;
+}
+.menu__link:hover {
+	color: #fffaf0;
+}
+
+/* --------- Main --------- */
+.background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-image: url(../img/background.jpg);
+}
+.background__on-color {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(20, 20, 20, .6);
+}
+
+.content {
+	width: 1200px;
+	margin: 0 auto;
+}
+.content::after, .content::before {
+	display: table;
+	content: '';
+}
+.content::after {
+	clear: both;
+}
+
+.wrapper {
+	width: 100%;
+}
+
+.img {
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: cover;
+}
+.img__on-color {
+	display: block;
+	width: 100%;
+	height: 100%;
+	transition: background-color .1s ease-in;
+	background-color: transparent;
+}
+
+/* --------- Footer --------- */
+.footer {
+	width: 100%;
+	height: 50px;
+	background-color: #696969;
+}
+.footer__author {
+	display: block;
+	width: 100px;
+	margin: 0 auto;
+	margin-top: 15px;
+	color: #bebebe;
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 17px;
+}
+
+/* --------- Title --------- */
+.title {
+	width: 100%;
+	height: 200px;
+	text-align: center;
+	color: white;
+	padding-top: 60px;
+}
+.title__text {
+	display: block;
+	margin-bottom: 10px;
+	font-family: LatoBlack, sans-serif, Arial;
+	font-size: 48px;
+	transition: color .1s ease-in;
+}
+.title__text:hover {
+	color: #d3d3d3;
+}
+.title__desc {
+	font-family: LatoLight, sans-serif, Arial;
+	font-size: 14px;
+}
+
+/* --------- Articles List --------- */
+.articles-list {
+	width: 100%;
+	margin-bottom: 50px;
+}
+.articles-list::after, .articles-list::before {
+	display: table;
+	content: '';
+}
+.articles-list::after {
+	clear: both;
+}
+
+.article-prev {
+	float: left;
+	width: 380px;
+	background-color: white;
+	margin: 0 10px 30px;
+}
+.article-prev__img {
+	display: block;
+	width: 100%;
+	height: 240px;
+	margin-bottom: 25px;
+}
+.article-prev__img:hover .img__on-color {
+	background-color: rgba(255, 255, 240, .2);
+}
+.article-prev__title {
+	width: 300px;
+	margin: 0 auto;
+	font-family: LatoBlack, sans-serif, Arial;
+	font-size: 25px;
+	margin-bottom: 10px;
+	transition: color .1s ease-in;
+}
+.article-prev__title:hover {
+	color: #2f4f4f;
+}
+.article-prev__text {
+	width: 300px;
+	margin: 0 auto;
+	font-family: Lato, sans-serif, Arial;
+	font-size: 16px;
+	color: #696969;
+	margin-bottom: 30px;
+}
+.article-prev .hr {
+	width: 300px;
+	margin: 0 auto;
+	border-top: 2px solid #dcdcdc;
+	margin-bottom: 20px;
+}
+.article-prev__data {
+	float: left;
+	margin-left: 40px;
+	margin-bottom: 20px;
+	font-family: Lato, sans-serif, Arial;
+	font-size: 14px;
+	color: #696969;
+}
+
+/* --------- Registration --------- */
+.registration {
+	width: 800px;
+	margin: 0 auto;
+	background-color: white;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	margin-bottom: 50px;
+}
+.registration__title {
+	margin-top: 20px;
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+.registration__form {
+	width: 500px;
+	margin: 0 auto;
+}
+.registration__btn {
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 16px;
+	padding: 10px 10px;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: border-color .1s ease-in;
+}
+.registration__btn:hover {
+	border-color: #5f9ea0;
+}
+
+.input-block {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.input-block__text {
+	font-family: Lato, sans-serif, Arial;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.input-block__input {
+	width: 200px;
+	float: right;
+	border: 2px #bebebe solid;
+	padding: 2px 5px;
+}
+
+/* --------- Personal area --------- */
+.personal-area {
+	width: 100%;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: white;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.personal-area__avatar {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: black;
+	margin: 0 auto;
+	margin-bottom: 40px;
+	overflow: hidden;
+}
+.personal-area__avatar-img {
+	width: 100%;
+	height: 100%;
+}
+.personal-area__name {
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 40px;
+	margin-bottom: 10px;
+}
+.personal-area__birthday {
+	font-family: Lato, sans-serif, Arial;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.personal-area__email {
+	font-family: Lato, sans-serif, Arial;
+	font-size: 14px;
+	margin-bottom: 50px;
+}
+.personal-area__buttons {
+	margin: 0 auto;
+	width: 620px;
+}
+.personal-area__btn {
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 20px;
+	padding: 20px 40px;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: border-color .1s ease-in;
+	margin-bottom: 40px;
+	margin-left: 20px;
+}
+.personal-area__btn:hover {
+	border-color: #5f9ea0;
+}
+.personal-area__error {
+	font-family: Lato, sans-serif, Arial;
+	font-size: 16px;
+	color: red;
+	margin-bottom: 20px;
+}
+.personal-area__title {
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 34px;
+	margin-bottom: 30px;
+}
+.personal-area__form-edit-info {
+	text-align: left;
+}
+.personal-area__input-block {
+	margin: 0 auto;
+	width: 480px;
+	margin-bottom: 20px;
+}
+
+.edit-info__btn {
+	display: block;
+	margin: 0 auto;
+}
+
+/* --------- News --------- */
+.create-news {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: white;
+	padding: 40px;
+	margin-bottom: 40px;
+}
+.create-news__title {
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 36px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.create-news__error {
+	font-family: Lato, sans-serif, Arial;
+	font-size: 20px;
+	color: red;
+}
+.create-news__label {
+	display: block;
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.create-news__btn {
+	display: block;
+	margin-bottom: 20px;
+	font-family: LatoBold, sans-serif, Arial;
+	font-size: 16px;
+	padding: 10px 10px;
+	border: 2px solid transparent;
+	cursor: pointer;
+	border-color: #5f9ea0;
+}
+.create-news__textarea {
+	margin-bottom: 20px;
+}
