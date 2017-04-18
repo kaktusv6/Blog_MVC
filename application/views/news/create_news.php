@@ -1,10 +1,17 @@
 <section class="create-news">
     <h1 class="create-news__title">Create current news</h1>
-    <h4 class="create-news__error"></h4>
+    <h4 class="create-news__successful" color="green">
+        <?=$_SESSION['successfulText']?>
+        <?$_SESSION['successfulText'] = ''?>
+    </h4>
+    <h4 class="create-news__error">
+        <?=$_SESSION['msgError']?>
+        <?$_SESSION['msgError'] = ''?>
+    </h4>
     <div class="create-news__form">
         <label class="create-news__label">Choose main image for your news</label>
         <button class="create-news__btn">Choose image</button>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <input type="file" name="urlImgNews" style="display: none;">
             <div class="input-block" style="margin-bottom: 40px;">
                 <label class="create-news__label">Enter title for your news</label>
@@ -32,9 +39,9 @@
         });
 
         $(document).ready(function () {
-            $('input[type=file]').change(function () {
-                $('.create-news__form form').trigger('submit');
-            });
+//            $('input[type=file]').change(function () {
+//                $('.create-news__form form').trigger('submit');
+//            });
             $('button.create-news__btn').click(function () {
                 $('input[type=file]').trigger('click');
             });
