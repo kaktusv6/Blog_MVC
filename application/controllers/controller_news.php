@@ -29,6 +29,7 @@ class Controller_News extends Controller {
         if (isset($_POST) && !empty($_POST)) {
             $_SESSION['msgError'] = '';
             $_SESSION['isError'] = true;
+            
             if (empty($_POST['titleNews'])) {
                 $_SESSION['msgError'] = 'Please enter title for news';
             }
@@ -36,7 +37,10 @@ class Controller_News extends Controller {
                 $_SESSION['msgError'] = 'Please enter text for news';
             }
             else {
-                $this->model->create_news($_POST['titleNews'], $_POST['textNews']);
+                $urlImg = $this->model->upload_img('news', $_FILES['urlImgNews']);
+                if (!(empty($urlImg) && $_SESSION['isError'])) {
+                    $this->model->create_news($_POST['titleNews'], $_POST['textNews'], $urlImg);
+                }
             }
         }
 
