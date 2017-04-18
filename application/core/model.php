@@ -13,7 +13,8 @@ class Model {
 
 	function  __construct() {
 		$this->pdo = new PDO('mysql:host=127.0.0.1;dbname=blog', 'root', '');
-//		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 //		$this->pdo->exec("set names utf8");
 //		$this->mysql = new mysqli('127.0.0.1', 'root', '', 'blog', '3306');
 	}
@@ -33,39 +34,40 @@ class Model {
 		$this->pdo = null;
 	}
 
-	function upload_img($path, $img) {
+	public function upload_img($path, $img)
+	{
+		if (empty($img)) {
+			return '';
+		}
+
 		$targetFile = 'upload/img/' . $path . '/' . basename($img['name']);
 		$imageFileType = pathinfo($targetFile, PATHINFO_EXTENSION);
-		$isImage = $imageFileType != "jpg"
-			&& $imageFileType != "png"
-			&& $imageFileType != "jpeg"
-			&& $imageFileType != "gif";
+		$isImage = $imageFileType == "jpg"
+			|| $imageFileType == "png"
+			|| $imageFileType == "jpeg"
+			|| $imageFileType == "gif";
 
 		$_SESSION['msgError'] = '';
 		$_SESSION['isError'] = true;
-		if (!$isImage) {
-			$_SESSION['msgError'] = "Sorry, your file is not image";
-			return false;
-		}
 
 		if (file_exists($targetFile)) {
-			return true;
+			return '/'.$targetFile;
 		}
 
 		if ($img["size"] > 500000) {
 			$_SESSION['msgError'] = "Sorry, your file is too large";
-			return false;
+			return '';
 		}
 
-		if ($isImage) {
+		if (!$isImage) {
 			$_SESSION['msgError'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed";
-			return false;
+			return '';
 		}
 
 		move_uploaded_file($img["tmp_name"], $targetFile);
 		$_SESSION['msgError'] = '';
 		$_SESSION['isError'] = false;
 
-		return true;
+		return '/'.$targetFile;
 	}
 }
